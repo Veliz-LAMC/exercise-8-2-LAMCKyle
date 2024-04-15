@@ -9,7 +9,8 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 800px;
+    width: 98%;
+	max-width: 960px;
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
@@ -40,13 +41,18 @@ header h3 {
 }
 header img {
 	float: left;
-	padding: 0 30px;
+	/* padding: 0 30px; */
+	padding: 0 3.75%; /* 30/800*100 based on original 800px body width*/
 }
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
 /* the styles for the navigation menu */
+#mobile_menu {
+	display: none;
+}
 #nav_menu ul {
+	width: 100%;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -54,10 +60,11 @@ header img {
 }
 #nav_menu ul li {
 	float: left;
+	width: 20%; /* 192/960*100 adjusted to new body width */
 }
 #nav_menu ul li a {
     display: block;
-    width: 160px;
+    /* width: 160px; We were never told to adjust this. It should be 192px*/
     text-align: center;
     padding: 1em 0;
     text-decoration: none;
@@ -87,9 +94,11 @@ header img {
 
 /* the styles for the section */
 section {
-	width: 525px;
+	/* width: 525px; */
+	width: 65.625%; /* 525/800*100 based on original 800px body width */
 	float: right;
-	padding: 0 20px 20px 20px;
+	/* padding: 0 20px 20px 20px; */
+	padding: 0 2.5% 20px 2.5%; /* 20/800*100 based on original 800px body width*/
 }
 section h1 {
 	font-size: 150%;
@@ -133,13 +142,17 @@ article img {
 	float: right;
 	margin: .5em 0 1em 1em;
 	border: 1px solid black;
+	max-width: 40%;
+	min-width: 150px;
 }
 
 /* the styles for the aside */
 aside {
-	width: 215px;
+	/* width: 215px; */
+	width: 26.875%; /* 215/800*100 based on original body width */
 	float: right;
-	padding: 0 0 20px 20px;
+	/* padding: 0 0 20px 20px; */
+	padding: 0 0 20px 2.5%; /* 20/800*100 based on original 800px body width */
 }
 aside h2 {
 	color: #800000;
@@ -165,4 +178,55 @@ footer p {
 	text-align: center;
 	color: white;
 	padding: 1em 0;
+}
+@media only screen and (max-width: 645px) {
+	section h1 {
+		font-size: 125%;
+	}
+	section h2 {
+		font-size: 110%;
+	}
+	aside h2 {
+		font-size: 110%;
+	}
+	aside h3 a {
+		font-size: 85%; /* directions said "<a> elements within the h2 elements of the aside", but the links are in h3 elements */
+	}
+}
+@media only screen and (max-width: 575px) {
+	header{
+		text-align: center;
+	}
+	header img {
+		float: none;
+	}
+	section {
+		float: none;
+		width: 95%;
+	}
+	aside {
+		float: none;
+		padding-right: 2.5%;
+		width: 95%;
+	}
+	aside div {
+		column-count: 2;
+	}
+	article img {
+		max-width: 30%;
+	}
+	#nav_menu {
+		display: none;
+	}
+	#mobile_menu {
+		display: block;
+	}
+	.slicknav_menu{
+		background-color: #800000 !important;
+	}
+}
+@media only screen and (max-width: 470px) {
+	body {
+		font-size: 90%;
+	}
 }
